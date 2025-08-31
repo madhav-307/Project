@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+    /* ---------------- NAVIGATION ---------------- */
+nav {
+  background-color:black;
+  height: 40px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+.h2 {
+  color: white;
+  margin-left: 20px;
+  margin-right: 100px;
+  font-size: 1.2rem;
+}
+
+.one{
+    color: white;
+    text-decoration: none;
+    margin-left: 900px;
+}
+.two {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.95rem;
+}
+
+.one:hover,
+.two:hover {
+  color: grey;
+}
+
+#logo {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.smallcircle {
+  width: 6px;
+  height: 6px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-top: -17px;
+  margin-left: 7.1px;
+}
+
+.halfcircle {
+  width: 14px;
+  height: 4px;
+  border: 2px solid white;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 50px 50px 0 0;
+  margin-left: 3px;
+  margin-top: -1.2px;
+}
+
+#logo a:hover .circle,
+#logo a:hover .smallcircle,
+#logo a:hover .halfcircle {
+  border-color: grey;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+.hero {
+  margin-top: 20px;
+  height: 73vh; /* covers 70% viewport height */
+  background: url("https://www.decormantra.in/cdn/shop/files/BeautifulSceneryofCoupleDatingCanvasWallPainting_2.jpg?v=1729930618")
+              no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+/* dark overlay */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.hero h1,
+.hero form {
+  position: relative;
+  z-index: 1; /* keep above overlay */
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* ---------------- FORM ---------------- */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.15);
+  max-width: 900px;
+}
+
+label {
+  font-size: 0.8rem;
+  color: #666;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 180px;
+  outline: none;
+}
+
+input:focus {
+  border-color:#0071eb;
+  box-shadow: 0 0 5px rgba(0, 113, 235, 0.4);
+}
+
+button {
+  background: #0071eb;
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #005bb5;
+}
+
+/* ---------------- INFO CARDS ---------------- */
+.info-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2; /* ensures above hero background */
+}
+
+.card {
+  display: flex;
+  background: #faf6ef;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 480px;
+  min-width: 320px;
+  flex: 1;
+}
+
+.card-text {
+  padding: 20px;
+  flex: 1;
+}
+
+.card-text h3 {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.card-text a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #0071eb;
+  font-weight: bold;
+}
+
+.card-text a:hover {
+  text-decoration: underline;
+}
+
+.card-img {
+  flex: 1;
+  max-width: 50%;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+h2 {
+  font-size: 1.5rem;
+  margin: 20px;
+}
+
+/* Discover Section */
+.discover {
+  padding: 20px;
+}
+
+.discover-cards {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.discover-card {
+  flex: 0 0 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.discover-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.discover-card img:hover {
+  transform: scaleX(1.1);
+}
+
+.discover-card p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-size: 0.9rem;
+}
+
+/* Deals Section */
+.deals {
+  padding: 20px;
+}
+
+.deals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deals-header h2 {
+  margin: 0;
+}
+
+.deals-header button {
+  background: #0071eb;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.deals-header button:hover {
+  background: #005bb5;
+}
+
+.deals > p {
+  margin: 10px 0 20px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.deals-cards {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.deal-card {
+  flex: 0 0 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.deal-card:hover {
+  transform: translateY(-5px);
+}
+
+.deal-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.deal-info {
+  padding: 12px;
+}
+
+.deal-info .rating {
+  display: inline-block;
+  background: #00796b;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+}
+
+.deal-info h3 {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.deal-info p {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+.deals-header button {
+  background: #0071eb;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+h2 {
+  color: #000;
+}/* ===== Explore Stays Section ===== */
+.explore-stays {
+  padding: 40px 60px;
+  background: #fff;
+}
+
+.explore-stays h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.explore-stays p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Tabs */
+.explore-stays .tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.explore-stays .tabs button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: #f1f1f1;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.explore-stays .tabs button:hover {
+  background: #0071eb;
+  color: white;
+}
+
+/* Destination Cards */
+.destinations {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.destination-card {
+  flex: 1 1 calc(25% - 20px);
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.destination-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.destination-card p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+
+.destination-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #111;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== Unique Stays Section ===== */
+/* ===== Unique Stays Section ===== */
+.unique-stays {
+  padding: 20px;
+}
+
+.unique-stays h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.unique-stays p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.unique-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: stretch; /* ensures equal height */
+}
+
+.unique-card {
+  flex: 1 1 calc(25% - 20px);
+  display: flex;
+  flex-direction: column; /* stack image + content */
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.unique-card img {
+  width: 100%;
+  height: 200px;   /* uniform image height */
+  object-fit: cover;
+}
+
+.unique-card-content {
+  flex: 1; /* ensures equal content height */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.unique-card h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.unique-card p {
+  color: #777;
+  font-size: 14px;
+  margin: 0;
+}
+
+.unique-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #111;
+}
+
+.unique-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+/* ===== Footer Styling ===== */
+.footer {
+  background-color: #fdf9f1;   /* light beige background */
+  padding: 40px 60px 20px;
+  font-family: Arial, sans-serif;
+  color: #222;
+  font-size: 14px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column h4 {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #0056b3;   /* blue link color */
+  font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.6;
+}
+
+  </style>
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <h2 class="h2">HOTELBOOK.COM</h2>
+      <a href="#" class="one">Trips</a>      
+      <a href="#" class="two">Sign In</a>
+      <div id="logo">
+        <a href="#" class="btn btn-success">
+          <div class="circle"></div>
+          <div class="smallcircle"></div>
+          <div class="halfcircle"></div>
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+    <section class="hero">
+      <div class="overlay">
+        <h1>Where to next?</h1>
+
+        <form>
+          <!-- Destination -->
+          <label for="destination">Where to?</label>
+          <input type="text" id="destination" name="destination" placeholder="Enter destination">
+
+          <!-- Dates -->
+          <label for="checkin">Check-in Date</label>
+          <input type="date" id="checkin" name="checkin">
+
+          <label for="checkout">Check-out Date</label>
+          <input type="date" id="checkout" name="checkout">
+
+          <!-- Travellers -->
+          <label for="travellers">Number of Travellers</label>
+          <input type="number" id="travellers" name="travellers" min="1" value="2">
+
+          <!-- Rooms -->
+          <label for="rooms">Number of Rooms</label>
+          <input type="number" id="rooms" name="rooms" min="1" value="1">
+
+          <!-- Search Button -->
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- INFO CARDS SECTION -->
+    <section class="info-cards">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-text">
+          <h3>Stay 10 nights, get 1 reward night</h3>
+          <a href="#">Search stays →</a>
+        </div>
+        <div class="card-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYY-fUOZbelY_UCVjc_vLc8YwxUZENj-gkOg&s" alt="Stay Reward">
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-text">
+          <h3>Plans change. Book a stay with flexibility to cancel at any time</h3>
+          <a href="#">Book now →</a>
+        </div>
+        <div class="card-img">
+          <img src="https://media.istockphoto.com/id/510106245/photo/twin-hotel-room-interior.jpg?s=612x612&w=0&k=20&c=kD58ev-zQHjvXg_jrPHD8f744RcVJyLMlemioM7qwFQ=" alt="Flexible Stay">
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-text">
+          <h3>Compare hotels side-by-side to find the right one for you</h3>
+          <a href="#">Compare hotels →</a>
+        </div>
+        <div class="card-img">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShM3nZQni9rWK1qJqYn4MGoYJfzKN6dGgfKQ&s" alt="Compare Hotels">
+        </div>
+      </div>
+    </section>
+    <section class="discover">
+    <h2>Discover your new favourite stay</h2>
+    <div class="discover-cards">
+      <div class="discover-card">                     
+        <img src="https://q-xx.bstatic.com/xdata/images/hotel/max500/333148811.jpg?k=fd646fe5d9e7064d9241fad5085a7c1b8dc03e11e52c0c558aa200d5c83c9d57&o=" alt="Apart hotel">
+        <p>Apart hotel</p>
+      </div>
+      <div class="discover-card">
+        <img src="https://tattvaspa.com/wp-content/uploads/2021/02/thumbnail.webp" alt="Spa">
+        <p>Spa</p>
+      </div>
+      <div class="discover-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6VkffkzpcA_Yup5eMzneYkFLqg1Y4QFFIJA&s" alt="Resort">
+        <p>Resort</p>
+      </div>
+      <div class="discover-card">
+        <img src="https://media.istockphoto.com/id/1165384568/fr/photo/complexe-moderne-europ%C3%A9en-de-b%C3%A2timents-r%C3%A9sidentiels.jpg?s=612x612&w=0&k=20&c=nvoIbiIffCt-nuj47Cc3I261Ke98iMouq_HefNM7Lz0=" alt="Apartment">
+        <p>Apartment</p>
+      </div>
+      <div class="discover-card">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/96646976.jpg?k=9ea908369c97cf1ac9b24387ff1b43a80c84360334857f1f606f905371bf1f01&o=&hp=1" alt="Sea view">
+        <p>Sea view</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section class="deals">
+    <div class="deals-header">
+      <h2>Top deals for a last minute getaway</h2>
+      <button>See all deals</button>
+    </div>
+    <p>Showing deals for: <strong>29 Aug - 31 Aug</strong></p>
+
+    <div class="deals-cards">
+      <!-- Card 1 -->
+      <div class="deal-card">
+        <img src="https://content.jdmagicbox.com/comp/ludhiana/e7/0161px161.x161.200207114507.t5e7/catalogue/hotel-k9-villa-ludhiana-ludhiana-hotels-b4vpoto402-250.jpg" alt="Fabhotel K9 Villa">
+        <div class="deal-info">
+          <span class="rating">10 Exceptional (1 review)</span>
+          <h3>Fabhotel K9 Villa</h3>
+          <p>Ludhiana</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="deal-card">
+        <img src="https://www.parksidehotels.com/wp-content/uploads/2022/05/PHG-2.jpg" alt="Portola Hotel By Parkside">
+        <div class="deal-info">
+          <span class="rating">9.0 Wonderful (2 reviews)</span>
+          <h3>Portola Hotel By Parkside</h3>
+          <p>Dharamshala</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="deal-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYass8akgkY5lYw-3x4x7CHheRz4_Y4-7NqQ&s" alt="Hotel Buddha House Himalayan Brothers">
+        <div class="deal-info">
+          <span class="rating">9.0 Wonderful (7 reviews)</span>
+          <h3>Hotel Buddha House Himalayan Brothers</h3>
+          <p>Dharamshala</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="deal-card">
+        <img src="https://images.trvl-media.com/lodging/112000000/111710000/111701800/111701798/6277883a.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" alt="Treebo Premium The Mustard Inn">
+        <div class="deal-info">
+          <span class="rating">10 Exceptional (1 review)</span>
+          <h3>Treebo Premium The Mustard Inn</h3>
+          <p>Lawrence Road</p>
+        </div>
+        </div>
+         <!-- Card 5 -->
+        <div class="deal-card">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/16/90/f8/exterior.jpg?w=1200&h=-1&s=1" alt="Treebo Premium The Mustard Inn">
+        <div class="deal-info">
+          <span class="rating">11 Exceptional (4 review)</span>
+          <h3>Le Meridien</h3>
+          <p>Aguada - Siolim Rd, Gauravaddo, Calangute, Goa</p>
+        </div>
+      </div>
+       <!-- Card 6 -->
+        <div class="deal-card">
+        <img src="https://rukmini-ct.flixcart.com/f_auto,q_auto/ct-hotel-images/places/hotels/cms/3940/3940583/images/image_3940583_20f38098-bb50-46cf-8141-240bc3c57869.jpeg" alt="Treebo Premium The Mustard Inn">
+        <div class="deal-info">
+          <span class="rating">9 excellent (4 review)</span>
+          <h3>HHI Varanasi</h3>
+          <p>Maldahiya Rd, near Maldahiya Crossing, Maldahiya, Varanasi, Uttar Pradesh</p>
+        </div>
+      </div>
+  </section>
+    
+
+  <!-- Unique Stays Section -->
+  <section class="unique-stays">
+      <div class="deals-header">
+      <h2>Explore these unique stays</h2>
+      <button>See all deals</button>
+    </div>
+    <p>Showing deals for: <strong>2 Sept - 6 Sept</strong></p>
+    <div class="unique-cards">
+      <div class="unique-card">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/22490247.jpg?k=016c0b4388c40b407c1ff25c890b16601ef93cfe838ec7c2085e18e64fede52d&o=&hp=1" alt="Samode Palace">
+        <h3>Samode Palace</h3>
+        <p>Chomu</p>
+        <span>₹15,000</span>
+        <small>₹35,400 total includes taxes & fees</small>
+      </div>
+
+      <div class="unique-card">
+        <img src="https://www.i-escape.com/image/hotel/rajmahal-palace-raas/overview/265034.jpg" alt="Rajmahal Palace RAAS">
+        <h3>Rajmahal Palace RAAS</h3>
+        <p>Jaipur</p>
+        <span>₹24,000</span>
+        <small>₹56,640 total includes taxes & fees</small>
+      </div>
+
+      <div class="unique-card">
+        <img src="https://static.wixstatic.com/media/e0ce5d_6fa67bfc0946434b9bea3f90be763653~mv2.jpg/v1/fill/w_1500,h_1001,al_c/e0ce5d_6fa67bfc0946434b9bea3f90be763653~mv2.jpg" alt="Alsisar Mahal">
+        <h3>Alsisar Mahal - A Heritage Hotel</h3>
+        <p>Alsisar</p>
+        <span>₹9,000</span>
+        <small>₹23,364 total includes taxes & fees</small>
+      </div>
+
+      <div class="unique-card">
+        <img src="https://lh3.googleusercontent.com/p/AF1QipMzmahavFFnp5-i-dStJ4jsAkueed8owmk-eXfo=w324-h312-n-k-no" alt="The Laxmi Niwas Palace">
+        <h3>The Laxmi Niwas Palace</h3>
+        <p>Bikaner</p>
+        <span>₹9,416</span>
+        <small>₹22,222 total includes taxes & fees</small>
+      </div>
+
+  </section>
+  </body>
+  <!-- ===== Footer Section ===== -->
+<footer class="footer">
+  <div class="footer-container">
+    
+    <div class="footer-column">
+      <h4>Top destinations</h4>
+      <ul>
+        <li><a href="#">Hotels in Dubai</a></li>
+        <li><a href="#">Hotels in Paris</a></li>
+        <li><a href="#">Hotels in London</a></li>
+        <li><a href="#">Hotels in Mumbai</a></li>
+        <li><a href="#">Hotels in New York</a></li>
+        <li><a href="#">Hotels in Bangkok</a></li>
+        <li><a href="#">Hotels in New Delhi</a></li>
+        <li><a href="#">Hotels in Singapore</a></li>
+        <li><a href="#">Hotels in Hyderabad</a></li>
+        <li><a href="#">Hotels in Bengaluru</a></li>
+        <li><a href="#">Hotels in Amsterdam</a></li>
+        <li><a href="#">Hotels in Kolkata</a></li>
+        <li><a href="#">Hotels in Jaipur</a></li>
+        <li><a href="#">Hotels in Istanbul</a></li>
+        <li><a href="#">Hotels in Pune</a></li>
+        <li><a href="#">Hotels in Chennai</a></li>
+        <li><a href="#">Hotels in Hong Kong</a></li>
+        <li><a href="#">Hotels in Rome</a></li>
+        <li><a href="#">Hotels in Las Vegas</a></li>
+        <li><a href="#">Hotels in Krabi</a></li>
+        <li><a href="#">Hotels in Kuala Lumpur</a></li>
+        <li><a href="#">Hotels in Barcelona</a></li>
+        <li><a href="#">Hotels in Agra</a></li>
+        <li><a href="#">Hotels in Tokyo</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Top countries & regions</h4>
+      <ul>
+        <li><a href="#">Hotels in Maldives</a></li>
+        <li><a href="#">Hotels in Singapore</a></li>
+        <li><a href="#">Hotels in Mauritius</a></li>
+        <li><a href="#">Hotels in Seychelles</a></li>
+        <li><a href="#">Hotels in Sri Lanka</a></li>
+        <li><a href="#">Hotels in India</a></li>
+        <li><a href="#">Hotels in South Mumbai</a></li>
+        <li><a href="#">Hotels in Cappadocia</a></li>
+        <li><a href="#">Hotels i
